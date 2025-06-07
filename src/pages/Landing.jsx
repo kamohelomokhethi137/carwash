@@ -14,7 +14,7 @@ import {
 } from 'react-icons/fa';
 import car from '../assets/car-wash.svg'; // Adjust path if needed
 
-function Landingpage() {
+function Landing() {
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -140,4 +140,4 @@ function Landingpage() {
   );
 }
 
-export default Landingpage;
+export default Landing;
