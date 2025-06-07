@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import LandingPage from './pages/Landingpage'
+import Landing from './pages/Landingpage'
 
 
 function App() {
   return (
     <div className="App">
-      <LandingPage />
+      <Landing />
       {/* You can add more components or pages here */}
     </div>
   )
