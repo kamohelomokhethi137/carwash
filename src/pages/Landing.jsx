@@ -2,17 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import {
-  FaCar,
-  FaStar,
-  FaBolt,
   FaLeaf,
   FaCalendarAlt,
   FaInfoCircle,
-  FaTint,
-  FaPaintRoller,
-  FaSoap
 } from 'react-icons/fa';
-import car from '../assets/car-wash.svg'; // Adjust path if needed
+import car from '../assets/car-wash.svg';
 
 function Landing() {
   const container = {
