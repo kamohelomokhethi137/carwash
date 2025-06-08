@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IoMdNotificationsOutline } from 'react-icons/io';
-import Notifications from './Notifications';
+import Notifications from './pages/Notifications';
 
 function HeaderBar() {
   const [showNotifications, setShowNotifications] = useState(false);
