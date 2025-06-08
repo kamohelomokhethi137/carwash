@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar'; // tlosa ena then if otlo importa nav ho app.jsx.. li hlaha li le peli
+// causing some problems like overlapping
 import {
   FaLeaf,
   FaCalendarAlt,
@@ -46,7 +47,7 @@ function Landing() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Spacing below navbar */}
       <div className="pt-8">
