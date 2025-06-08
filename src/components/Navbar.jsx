@@ -4,11 +4,14 @@ import { AiFillHome } from 'react-icons/ai';
 import { FaUserAlt } from 'react-icons/fa';
 import { MdMiscellaneousServices } from 'react-icons/md';
 import { RiContactsBook2Fill } from 'react-icons/ri';
+import { Link, useNavigate, useLocation } from 'react-router-dom'; // Import Link, useNavigate, and useLocation
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState('Home');
+  const [activeLink, setActiveLink] = useState('Home'); // This will manage active state for anchor links
+  const navigate = useNavigate(); // Hook to programmatically navigate
+  const location = useLocation(); // Hook to get current URL path
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +21,19 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Update activeLink based on the current URL path for router links
+  useEffect(() => {
+    if (location.pathname === '/notifications') {
+      setActiveLink('Notifications');
+    } else if (location.pathname === '/') {
+      // You might need a more sophisticated way to handle active state for anchor links
+      // For now, if it's the root, assume Home is active unless an anchor is scrolled to
+      setActiveLink('Home'); 
+    }
+    // You can add more logic here for other full-page routes like /about, /services, etc.
+  }, [location.pathname]);
+
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
@@ -25,11 +41,25 @@ const Navbar = () => {
     { name: 'About', href: '#about', icon: <FaUserAlt className="inline mr-2" /> },
     { name: 'Services', href: '#services', icon: <MdMiscellaneousServices className="inline mr-2" /> },
     { name: 'Contact', href: '#contact', icon: <RiContactsBook2Fill className="inline mr-2" /> },
+    // Changed href to a valid React Router path
+    { name: 'Notifications', href: '/notifications', icon: <RiContactsBook2Fill className="inline mr-2" /> }
   ];
 
-  const handleLinkClick = (name) => {
-    setActiveLink(name);
-    setIsOpen(false);
+  const handleLinkClick = (name, path) => {
+    setActiveLink(name); // Set the active state for the clicked link
+    setIsOpen(false); // Close mobile menu
+
+    // If it's a React Router path, use navigate
+    if (path && path.startsWith('/')) {
+      navigate(path);
+    } else if (path && path.startsWith('#')) {
+      // For anchor links, manually scroll to the section
+      const id = path.substring(1); // Remove the '#'
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -50,14 +80,13 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
             className="flex-shrink-0 flex items-center"
           >
-            <a
-              href="#"
+            <Link // Use Link for the logo if it goes to the home route
+              to="/" // Assuming your logo navigates to the home page
               className="text-xl font-bold tracking-tight bg-gray-500 bg-clip-text text-transparent"
             >
               logo??? 
-            </a>
+            </Link>
           </motion.div>
-          {/* i will change logo once i know it.. */}
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -70,18 +99,33 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <a
-                    href={item.href}
-                    className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-300 ${
-                      activeLink === item.name
-                        ? 'text-[#1a202c]'
-                        : 'text-[#4a5568] hover:text-[#2d3748]'
-                    }`}
-                    onClick={() => handleLinkClick(item.name)}
-                  >
-                    {item.icon}
-                    {item.name}
-                  </a>
+                  {item.href.startsWith('/') ? ( // Use Link for paths starting with '/'
+                    <Link
+                      to={item.href}
+                      className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+                        activeLink === item.name
+                          ? 'text-[#1a202c]'
+                          : 'text-[#4a5568] hover:text-[#2d3748]'
+                      }`}
+                      onClick={() => handleLinkClick(item.name, item.href)}
+                    >
+                      {item.icon}
+                      {item.name}
+                    </Link>
+                  ) : ( // Use <a> for anchor links
+                    <a
+                      href={item.href}
+                      className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+                        activeLink === item.name
+                          ? 'text-[#1a202c]'
+                          : 'text-[#4a5568] hover:text-[#2d3748]'
+                      }`}
+                      onClick={() => handleLinkClick(item.name, item.href)}
+                    >
+                      {item.icon}
+                      {item.name}
+                    </a>
+                  )}
                   {activeLink === item.name && (
                     <motion.span
                       layoutId="activeLink"
@@ -105,7 +149,6 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Toggle */} 
-          {/* responsive part */}
           <div className="md:hidden flex items-center">
             <motion.button
               onClick={toggleMenu}
@@ -143,22 +186,41 @@ const Navbar = () => {
           >
             <div className="px-2 pt-2 pb-4 space-y-2 sm:px-3">
               {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className={`flex items-center px-3 py-3 rounded-md text-base font-medium ${
-                    activeLink === item.name
-                      ? 'bg-[#edf2f7] text-[#1a202c]'
-                      : 'text-[#4a5568] hover:bg-[#edf2f7] hover:text-[#2d3748]'
-                  }`}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.2 }}
-                  onClick={() => handleLinkClick(item.name)}
-                >
-                  {item.icon}
-                  {item.name}
-                </motion.a>
+                item.href.startsWith('/') ? ( // Use Link for paths starting with '/'
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`flex items-center px-3 py-3 rounded-md text-base font-medium ${
+                      activeLink === item.name
+                        ? 'bg-[#edf2f7] text-[#1a202c]'
+                        : 'text-[#4a5568] hover:bg-[#edf2f7] hover:text-[#2d3748]'
+                    }`}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.1 + 0.2 }}
+                    onClick={() => handleLinkClick(item.name, item.href)}
+                  >
+                    {item.icon}
+                    {item.name}
+                  </Link>
+                ) : ( // Use <a> for anchor links
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    className={`flex items-center px-3 py-3 rounded-md text-base font-medium ${
+                      activeLink === item.name
+                        ? 'bg-[#edf2f7] text-[#1a202c]'
+                        : 'text-[#4a5568] hover:bg-[#edf2f7] hover:text-[#2d3748]'
+                    }`}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.1 + 0.2 }}
+                    onClick={() => handleLinkClick(item.name, item.href)}
+                  >
+                    {item.icon}
+                    {item.name}
+                  </motion.a>
+                )
               ))}
               <motion.button
                 className="w-full mt-2 px-4 py-3 rounded-md bg-gradient-to-r from-[#a3bffa] to-[#c3dafe] text-[#1a202c] font-medium shadow-md"

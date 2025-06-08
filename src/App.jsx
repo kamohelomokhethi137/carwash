@@ -1,14 +1,27 @@
-import { useState } from 'react'
-import Home from './pages/Landing'
-
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Landing';
+import Notifications from './pages/Notifications';
+import Navbar from './components/Navbar'; 
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      {/* just for testing */}
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              
+              <Navbar />
+              <Home />
+            </>
+          }
+        />
+        <Route path="/notifications" element={<Notifications />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
