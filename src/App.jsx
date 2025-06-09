@@ -5,9 +5,11 @@ import Notifications from './pages/Notifications';
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import AdminDashboard from './pages/AdminDashboard';
 
 import PageNotFound from './pages/PageNotFound';
 import Navbar from './components/Navbar'; 
+
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        
+    
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>

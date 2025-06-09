@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AiFillHome } from 'react-icons/ai';
-import { FaUserAlt } from 'react-icons/fa';
 import { MdMiscellaneousServices } from 'react-icons/md';
 import { RiContactsBook2Fill } from 'react-icons/ri';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
+import HomeIcon from '../assets/home.webp'; 
+import AboutIcon from '../assets/wired-outline-21-avatar-hover-looking-around.webp'; 
+import NotificationIcon from '../assets/wired-outline-3095-notification-letter-in-reveal.webp';
+import ContactIcon from '../assets/wired-outline-177-envelope-send-in-unfold.webp';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -32,11 +34,11 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
-    { name: 'Home', href: '#home', icon: <AiFillHome className="inline mr-2" /> },
-    { name: 'About', href: '/about', icon: <FaUserAlt className="inline mr-2" /> },
+   { name: 'Home', href: '#home', icon: <img src={HomeIcon} alt="Home" className="inline mr-2 w-5 h-5" /> },
+    { name: 'About', href: '/about', icon: <img src={AboutIcon} alt="Home" className="inline mr-2 w-5 h-5" /> },
     { name: 'Services', href: '/services', icon: <MdMiscellaneousServices className="inline mr-2" /> },
-    { name: 'Contact', href: '/contact', icon: <RiContactsBook2Fill className="inline mr-2" /> },
-    { name: 'Notifications', href: '/notifications', icon: <RiContactsBook2Fill className="inline mr-2" /> }
+    { name: 'Contact', href: '/contact', icon:<img src={ContactIcon} alt="Home" className="inline mr-2 w-5 h-5" /> },
+    { name: 'Notifications', href: '/notifications', icon: <img src={NotificationIcon} alt="Home" className="inline mr-2 w-5 h-5" /> }
   ];
 
   const handleLinkClick = (name, path) => {

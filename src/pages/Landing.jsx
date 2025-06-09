@@ -5,6 +5,8 @@ import {
   FaCalendarAlt,
   FaInfoCircle,
 } from 'react-icons/fa';
+
+import bookIcon from '../assets/wired-outline-112-book-in-reveal.webp';
 import car from '../assets/car-wash.svg';
 
 // Memoize static animation variants to prevent unnecessary recalculations
@@ -73,8 +75,10 @@ function Landing() {
         whileHover={{ y: -3 }}
         whileTap={{ scale: 0.96 }}
       >
-        <FaCalendarAlt className="text-lg" /> Book Appointment
+        <img src={bookIcon} alt="Notification" className="w-5 h-5" />
+        <span className="text-lg">Book Appointment</span>
       </motion.button>
+
       <motion.button
         className="flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-800 font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 text-sm md:text-base"
         whileHover={{ y: -3 }}
