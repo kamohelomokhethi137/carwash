@@ -33,9 +33,9 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', href: '#home', icon: <AiFillHome className="inline mr-2" /> },
-    { name: 'About', href: '#about', icon: <FaUserAlt className="inline mr-2" /> },
-    { name: 'Services', href: '#services', icon: <MdMiscellaneousServices className="inline mr-2" /> },
-    { name: 'Contact', href: '#contact', icon: <RiContactsBook2Fill className="inline mr-2" /> },
+    { name: 'About', href: '/about', icon: <FaUserAlt className="inline mr-2" /> },
+    { name: 'Services', href: '/services', icon: <MdMiscellaneousServices className="inline mr-2" /> },
+    { name: 'Contact', href: '/contact', icon: <RiContactsBook2Fill className="inline mr-2" /> },
     { name: 'Notifications', href: '/notifications', icon: <RiContactsBook2Fill className="inline mr-2" /> }
   ];
 
