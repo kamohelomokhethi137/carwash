@@ -34,11 +34,21 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
+<<<<<<< HEAD
+    { name: 'Home', href: '#home', icon: <AiFillHome className="inline mr-2" /> },
+    { name: 'About', href: '#about', icon: <FaUserAlt className="inline mr-2" /> },
+    { name: 'Services', href: '#services', icon: <MdMiscellaneousServices className="inline mr-2" /> },
+    { name: 'Contact', href: '#contact', icon: <RiContactsBook2Fill className="inline mr-2" /> },
+    // Changed href to a valid React Router path
+    { name: 'Notifications', href: '/notifications', icon: <RiContactsBook2Fill className="inline mr-2" /> },
+    { name: 'Payments', href: '/paymentsDashBoard', icon: <RiContactsBook2Fill className="inline mr-2" /> }
+=======
    { name: 'Home', href: '#home', icon: <img src={HomeIcon} alt="Home" className="inline mr-2 w-5 h-5" /> },
     { name: 'About', href: '/about', icon: <img src={AboutIcon} alt="Home" className="inline mr-2 w-5 h-5" /> },
     { name: 'Services', href: '/services', icon: <MdMiscellaneousServices className="inline mr-2" /> },
     { name: 'Contact', href: '/contact', icon:<img src={ContactIcon} alt="Home" className="inline mr-2 w-5 h-5" /> },
     { name: 'Notifications', href: '/notifications', icon: <img src={NotificationIcon} alt="Home" className="inline mr-2 w-5 h-5" /> }
+>>>>>>> cbfb84cd6319c381785a0b062bc8056970682635
   ];
 
   const handleLinkClick = (name, path) => {

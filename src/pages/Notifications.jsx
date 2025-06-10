@@ -24,7 +24,11 @@ function Notifications() {
         <nav className="space-y-4">
           <a href="#" className="text-sm text-gray-700 font-medium block">Payments</a>
           <a href="#" className="text-sm text-gray-700 font-medium block">Ready Cars</a>
+<<<<<<< HEAD
+          <a href="#" className="text-sm text-gray-700 font-medium block">Uwashed Cars</a>
+=======
           <a href="#" className="text-sm text-gray-700 font-medium block">Unwashed Cars</a>
+>>>>>>> cbfb84cd6319c381785a0b062bc8056970682635
         </nav>
       </aside>
 
