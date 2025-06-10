@@ -26,6 +26,11 @@ function App() {
         />
         <Route path="/notifications" element={<Notifications />} />
 
+<<<<<<< HEAD
+=======
+        <Route path="/payments" element={<PaymentDashboard />} />
+
+>>>>>>> 8c665febb1ebe8cfda53cdb6bd80eeb8a843293c
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

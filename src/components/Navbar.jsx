@@ -37,11 +37,11 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
-
    { name: 'Home', href: '#home', icon: <img src={HomeIcon} alt="Home" className="inline mr-2 w-5 h-5" /> },
     { name: 'About', href: '/about', icon: <img src={AboutIcon} alt="Home" className="inline mr-2 w-5 h-5" /> },
     { name: 'Services', href: '/services', icon: <MdMiscellaneousServices className="inline mr-2" /> },
     { name: 'Contact', href: '/contact', icon:<img src={ContactIcon} alt="Home" className="inline mr-2 w-5 h-5" /> },
+      { name: 'Payments', href: '/paymentsDashBoard', icon: <RiContactsBook2Fill className="inline mr-2" /> },
     { name: 'Notifications', href: '/notifications', icon: <img src={NotificationIcon} alt="Home" className="inline mr-2 w-5 h-5" /> }
 
   ];
@@ -182,7 +182,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-[#f7fafc]/95 backdrop-blur-sm mt-2" // Added mt-2 here
+            className="md:hidden overflow-hidden bg-[#f7fafc]/95 backdrop-blur-sm mt-2" 
           >
             <div className="px-2 pt-2 pb-4 space-y-2 sm:px-3">
               {navItems.map((item, index) => (
