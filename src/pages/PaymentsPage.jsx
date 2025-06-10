@@ -1,8 +1,7 @@
-// src/components/PaymentsPage.jsx (or wherever you prefer to store your components)
+// src/components/PaymentsPage.jsx
 import React from 'react';
 
 function PaymentsPage() {
-  // Sample data for the table
   const paymentsData = [
     {
       numberPlate: 'CA 123-456',
@@ -34,6 +33,11 @@ function PaymentsPage() {
     <div className="bg-white shadow rounded p-4 w-full mx-auto">
       <h3 className="text-xl font-semibold text-gray-800 mb-4">Payments Due</h3>
 
+      {/* The 'overflow-x-auto' class here is key for table responsiveness.
+        If the table content exceeds the width of its container, 
+        a horizontal scrollbar will appear, allowing users to scroll 
+        the table horizontally on smaller screens.
+      */}
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200">
           <thead>

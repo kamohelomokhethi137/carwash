@@ -6,7 +6,6 @@ function SendSms() {
   const [smsMessage, setSmsMessage] = useState('');
   const [messageSent, setMessageSent] = useState(false); // To show confirmation
 
-
   const drivers = [
     {
       numberPlate: 'CA 123-456',
@@ -62,19 +61,19 @@ function SendSms() {
   };
 
   return (
-    <div className="bg-white shadow rounded p-6 w-full max-w-2xl mx-auto">
-      <h3 className="text-2xl font-semibold text-gray-800 mb-6">Send SMS to Driver</h3>
+    <div className="bg-white shadow rounded p-4 sm:p-6 w-full max-w-2xl mx-auto"> {/* Adjusted padding for smaller screens */}
+      <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-6">Send SMS to Driver</h3> {/* Adjusted font size for smaller screens */}
 
       {/* Search Section */}
       <form onSubmit={handleSearch} className="mb-6 p-4 border rounded bg-gray-50">
         <label htmlFor="searchPlate" className="block text-sm font-medium text-gray-700 mb-2">
           Search by Number Plate:
         </label>
-        <div className="flex space-x-3">
+        <div className="flex flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0"> {/* Flex direction change for responsiveness */}
           <input
             type="text"
             id="searchPlate"
-            className="flex-1 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 text-gray-950"
+            className="flex-1 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-base p-2 text-gray-950" {/* Adjusted text size */}
             value={searchPlate}
             onChange={(e) => setSearchPlate(e.target.value)}
             placeholder="e.g., CA 123-456"
@@ -82,7 +81,7 @@ function SendSms() {
           />
           <button
             type="submit"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" {/* Full width on small, auto on larger */}
           >
             Search
           </button>
@@ -93,7 +92,7 @@ function SendSms() {
       {foundDriver ? (
         <div className="p-4 border rounded bg-blue-50 mb-6">
           <h4 className="text-lg font-semibold text-blue-800 mb-2">Driver Found:</h4>
-          <p className="text-gray-700">
+          <p className="text-gray-700 text-sm sm:text-base"> {/* Adjusted text size */}
             <strong>Name:</strong> {foundDriver.driverName}<br />
             <strong>Phone:</strong> {foundDriver.phoneNumber}<br />
             <strong>Number Plate:</strong> {foundDriver.numberPlate}
@@ -106,7 +105,7 @@ function SendSms() {
             <textarea
               id="smsMessage"
               rows="4"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 text-gray-950"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-base p-2 text-gray-950" {/* Adjusted text size */}
               value={smsMessage}
               onChange={(e) => setSmsMessage(e.target.value)}
               placeholder="Type your message here..."
@@ -123,7 +122,7 @@ function SendSms() {
           </div>
         </div>
       ) : (
-        <p className="text-gray-600 text-center py-4">Search for a driver by their number plate to send an SMS.</p>
+        <p className="text-gray-600 text-center py-4 text-sm sm:text-base">Search for a driver by their number plate to send an SMS.</p> {/* Adjusted text size */}
       )}
     </div>
   );
