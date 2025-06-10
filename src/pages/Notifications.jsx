@@ -35,13 +35,6 @@ function Notifications() {
         return <PaymentsPage />;
       case 'sendSms': 
         return <SendSms />; 
-      case 'unwashedCars':
-        return (
-          <div className="bg-white shadow rounded p-4 w-full max-w-xl mx-auto">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Unwashed Cars</h3>
-            <p className="text-gray-600">Content for Unwashed Cars goes here.</p>
-          </div>
-        );
       case 'notifications': 
       default:
         return (
@@ -103,20 +96,7 @@ function Notifications() {
               <FaEnvelope className={`h-5 w-5 transition-opacity duration-300 delay-200 ${iconsVisible ? 'opacity-100' : 'opacity-0'}`} /> {/* Icon with opacity transition and delay */}
               <span>SEND SMS</span>
             </a>
-            <a
-              href="#"
-              className={`md:hidden flex items-center space-x-3 text-sm font-medium ${activeContent === 'unwashedCars' ? 'text-blue-600' : 'text-gray-700'}`}
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveContent('unwashedCars');
-                if (window.innerWidth < 768) {
-                  setShowSidebar(false);
-                }
-              }}
-            >
-   
-              Unwashed Cars
-            </a>
+          
           </nav>
         </div>
 
