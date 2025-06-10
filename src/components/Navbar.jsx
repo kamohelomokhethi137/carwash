@@ -42,7 +42,8 @@ const Navbar = () => {
     { name: 'Services', href: '#services', icon: <MdMiscellaneousServices className="inline mr-2" /> },
     { name: 'Contact', href: '#contact', icon: <RiContactsBook2Fill className="inline mr-2" /> },
     // Changed href to a valid React Router path
-    { name: 'Notifications', href: '/notifications', icon: <RiContactsBook2Fill className="inline mr-2" /> }
+    { name: 'Notifications', href: '/notifications', icon: <RiContactsBook2Fill className="inline mr-2" /> },
+    { name: 'Payments', href: '/paymentsDashBoard', icon: <RiContactsBook2Fill className="inline mr-2" /> }
   ];
 
   const handleLinkClick = (name, path) => {
