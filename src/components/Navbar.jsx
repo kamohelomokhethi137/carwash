@@ -177,7 +177,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-[#f7fafc]/95 backdrop-blur-sm mt-2" // Added mt-2 here
+            className="md:hidden overflow-hidden bg-[#f7fafc]/95 backdrop-blur-sm mt-2" 
           >
             <div className="px-2 pt-2 pb-4 space-y-2 sm:px-3">
               {navItems.map((item, index) => (
