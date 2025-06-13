@@ -73,7 +73,7 @@ function SendSms() {
           <input
             type="text"
             id="searchPlate"
-            className="flex-1 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-base p-2 text-gray-950" {/* Adjusted text size */}
+            className="flex-1 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-base p-2 text-gray-950"
             value={searchPlate}
             onChange={(e) => setSearchPlate(e.target.value)}
             placeholder="e.g., CA 123-456"
@@ -81,7 +81,7 @@ function SendSms() {
           />
           <button
             type="submit"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" {/* Full width on small, auto on larger */}
+            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" 
           >
             Search
           </button>
@@ -105,7 +105,7 @@ function SendSms() {
             <textarea
               id="smsMessage"
               rows="4"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-base p-2 text-gray-950" {/* Adjusted text size */}
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-base p-2 text-gray-950" 
               value={smsMessage}
               onChange={(e) => setSmsMessage(e.target.value)}
               placeholder="Type your message here..."
@@ -122,7 +122,7 @@ function SendSms() {
           </div>
         </div>
       ) : (
-        <p className="text-gray-600 text-center py-4 text-sm sm:text-base">Search for a driver by their number plate to send an SMS.</p> {/* Adjusted text size */}
+        <p className="text-gray-600 text-center py-4 text-sm sm:text-base">Search for a driver by their number plate to send an SMS.</p> 
       )}
     </div>
   );
