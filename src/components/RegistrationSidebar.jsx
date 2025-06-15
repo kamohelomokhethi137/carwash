@@ -11,7 +11,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab, userEmai
 
   const navItems = [
     { id: 'register', label: 'Register Car', icon: <FiHome size={18} /> },
-    { id: 'registrations', label: 'View Registrations', icon: <FiList size={18} /> }
+    { id: 'registrations', label: 'Registered Cars', icon: <FiList size={18} /> }
   ];
 
   return (
