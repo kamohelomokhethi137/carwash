@@ -33,7 +33,7 @@ const CarRegistrationDashboard = () => {
         carName: 'Toyota Hiace',
         make: 'Toyota',
         model: 'Hiace',
-        timestamp: new Date('2023-05-15T09:30:00')
+        timestamp: new Date('2025-05-15T09:30:00')
       },
       {
         id: 2,
@@ -42,7 +42,7 @@ const CarRegistrationDashboard = () => {
         carName: 'Executive Car',
         make: 'Mercedes',
         model: 'E-Class',
-        timestamp: new Date('2023-05-15T14:15:00')
+        timestamp: new Date('2025-05-15T14:15:00')
       }
     ];
     setRegistrations(sampleData);
