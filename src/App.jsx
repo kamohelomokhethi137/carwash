@@ -4,7 +4,9 @@ import Home from './pages/Landing';
 import Notifications from './pages/Notifications';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+
 import AdminDashboard from './pages/AdminDashboard';
+import CarRegistrationDashboard from './pages/CarRegistrationDashboard';
 
 import PageNotFound from './pages/PageNotFound';
 import Navbar from './components/Navbar'; 
@@ -29,6 +31,8 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/car-registration" element={<CarRegistrationDashboard />} />
+
         <Route path="/admin" element={<AdminDashboard />} />
         
     

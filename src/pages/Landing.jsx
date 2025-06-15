@@ -9,7 +9,6 @@ import {
 import bookIcon from '../assets/wired-outline-112-book-in-reveal.webp';
 import car from '../assets/car-wash.svg';
 
-// Memoize static animation variants to prevent unnecessary recalculations
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -22,7 +21,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { y: 25, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -46,10 +45,9 @@ const imageAnimVariants = {
 };
 
 function Landing() {
-  // Memoize the image component to prevent unnecessary re-renders
   const CarImage = useMemo(() => (
     <motion.div
-      className="relative  overflow-hidden"
+      className="relative overflow-hidden"
       whileHover={{ scale: 0.98 }}
       transition={{ duration: 0.4 }}
     >
@@ -64,27 +62,29 @@ function Landing() {
     </motion.div>
   ), []);
 
-  // Memoize buttons to prevent re-renders
   const Buttons = useMemo(() => (
     <motion.div
       className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2"
       variants={itemVariants}
     >
+      {/* Book Appointment Button */}
       <motion.button
-        className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm md:text-base"
-        whileHover={{ y: -3 }}
+        className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:shadow-xl transition-all duration-300 text-sm md:text-base"
+        whileHover={{ y: -4, scale: 1.05 }}
         whileTap={{ scale: 0.96 }}
       >
-        <img src={bookIcon} alt="Notification" className="w-5 h-5" />
-        <span className="text-lg">Book Appointment</span>
+        <FaCalendarAlt className="text-lg" />
+        <span>Book Appointment</span>
       </motion.button>
 
+      {/* Service Details Button */}
       <motion.button
-        className="flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-800 font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 text-sm md:text-base"
-        whileHover={{ y: -3 }}
+        className="flex items-center justify-center gap-2 px-6 py-3 bg-white text-gray-800 border border-gray-300 font-semibold rounded-lg shadow-sm hover:shadow-md transition-all duration-300 text-sm md:text-base"
+        whileHover={{ y: -4, scale: 1.05 }}
         whileTap={{ scale: 0.96 }}
       >
-        <FaInfoCircle className="text-lg" /> Service Details
+        <FaInfoCircle className="text-lg" />
+        <span>Service Details</span>
       </motion.button>
     </motion.div>
   ), []);
