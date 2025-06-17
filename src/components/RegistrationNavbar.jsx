@@ -9,15 +9,16 @@ const RegistrationNavbar = ({ toggleSidebar, userEmail }) => {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="bg-gradient-to-r from-gray-100 to-white shadow-lg p-4 flex justify-between items-center sticky top-0 z-30 backdrop-blur-md border-b border-gray-200 rounded-b-xl"
+      className="fixed top-0 left-0 w-full h-16 bg-white shadow-md px-4 flex justify-between items-center z-40 border-b border-gray-200"
     >
-      {/* Left: Menu + Title */}
+     
       <div className="flex items-center">
         <motion.button
           onClick={toggleSidebar}
-          whileHover={{ rotate: 90 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
           transition={{ type: 'spring', stiffness: 300 }}
-          className="mr-4 text-gray-700 hover:text-gray-900 focus:outline-none md:hidden"
+          className="text-gray-700 hover:text-gray-900 focus:outline-none md:hidden mr-4"
           aria-label="Toggle sidebar"
         >
           <FiMenu size={24} />
@@ -25,17 +26,23 @@ const RegistrationNavbar = ({ toggleSidebar, userEmail }) => {
         <h1 className="text-xl font-bold text-gray-800 tracking-wide">Car Registration</h1>
       </div>
 
-      {/* Right: Avatar + Name */}
-      <div className="flex items-center space-x-3">
-        <span className="hidden md:block text-sm font-medium text-gray-700">{userName}</span>
+     
+      <motion.div 
+        className="flex items-center space-x-3"
+        whileHover={{ scale: 1.02 }}
+      >
+        <span className="hidden sm:block text-sm font-medium text-gray-700 truncate max-w-[140px]">
+          {userName}
+        </span>
         <motion.div
-          className="w-10 h-10 rounded-full bg-gray-300 text-white flex items-center justify-center shadow-md"
-          whileHover={{ scale: 1.1, rotate: 5 }}
+          className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shadow-sm border border-gray-200"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <FiUser className="text-gray-800" size={20} />
+          <FiUser className="text-gray-700" size={18} />
         </motion.div>
-      </div>
+      </motion.div>
     </motion.nav>
   );
 };

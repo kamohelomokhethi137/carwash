@@ -5,7 +5,7 @@ import Notifications from './pages/Notifications';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
-import AdminDashboard from './pages/AdminDashboard';
+// import AdminDashboard from './pages/AdminDashboard';
 import CarRegistrationDashboard from './pages/CarRegistrationDashboard';
 
 import PageNotFound from './pages/PageNotFound';
@@ -33,7 +33,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/car-registration" element={<CarRegistrationDashboard />} />
 
-        <Route path="/admin" element={<AdminDashboard />} />
+        {/* <Route path="/admin" element={<AdminDashboard />} /> */}
         
     
 

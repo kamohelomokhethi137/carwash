@@ -27,13 +27,13 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    // Update activeLink based on current path
+  
     if (location.pathname === '/notifications') {
       setActiveLink('Notifications');
     } else if (location.pathname === '/') {
       setActiveLink('Home');
     } else {
-      // For other paths, try to match with navItems below
+  
       const found = navItems.find(item => item.href === location.pathname);
       if (found) setActiveLink(found.name);
       else setActiveLink('');

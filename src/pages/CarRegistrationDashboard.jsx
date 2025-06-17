@@ -43,12 +43,84 @@ const CarRegistrationDashboard = () => {
         make: 'Mercedes',
         model: 'E-Class',
         timestamp: new Date('2025-05-15T14:15:00')
+      },
+      {
+        id: 3,
+        plateNumber: 'B987',
+        phoneNumber: '12345678',
+        carName: 'Honda Accord',
+        make: 'Honda',
+        model: 'Accord',
+        timestamp: new Date('2025-05-16T10:00:00')
+      },
+      {
+        id: 4,
+        plateNumber: 'C654',
+        phoneNumber: '87654321',
+        carName: 'Ford Focus',
+        make: 'Ford',
+        model: 'Focus',
+        timestamp: new Date('2025-05-16T11:45:00')
+      },
+      {
+        id: 5,
+        plateNumber: 'D321',
+        phoneNumber: '23456789',
+        carName: 'Nissan Altima',
+        make: 'Nissan',
+        model: 'Altima',
+        timestamp: new Date('2025-05-17T08:30:00')
+      },
+      {
+        id: 6,
+        plateNumber: 'E876',
+        phoneNumber: '34567890',
+        carName: 'Chevrolet Malibu',
+        make: 'Chevrolet',
+        model: 'Malibu',
+        timestamp: new Date('2025-05-17T13:20:00')
+      },
+      {
+        id: 7,
+        plateNumber: 'F543',
+        phoneNumber: '45678901',
+        carName: 'Volkswagen Jetta',
+        make: 'Volkswagen',
+        model: 'Jetta',
+        timestamp: new Date('2025-05-18T09:15:00')
+      },
+      {
+        id: 8,
+        plateNumber: 'H210',
+        phoneNumber: '56789012',
+        carName: 'Hyundai Sonata',
+        make: 'Hyundai',
+        model: 'Sonata',
+        timestamp: new Date('2025-05-18T15:00:00')
+      },
+      {
+        id: 9,
+        plateNumber: 'I789',
+        phoneNumber: '67890123',
+        carName: 'Kia Optima',
+        make: 'Kia',
+        model: 'Optima',
+        timestamp: new Date('2025-05-19T10:45:00')
+      },
+      {
+        id: 10,
+        plateNumber: 'J456',
+        phoneNumber: '78901234',
+        carName: 'Subaru Legacy',
+        make: 'Subaru',
+        model: 'Legacy',
+        timestamp: new Date('2025-05-19T12:30:00')
       }
     ];
     setRegistrations(sampleData);
     setFilteredRegistrations(sampleData);
   }, []);
-
+  
   useEffect(() => {
     if (filterDate) {
       const filtered = registrations.filter(reg =>
@@ -87,25 +159,42 @@ const CarRegistrationDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Fixed Top Navbar */}
       <Navbar toggleSidebar={toggleSidebar} userEmail={userEmail} />
 
-      <div className="flex flex-1 overflow-hidden">
-        <Sidebar
-          sidebarOpen={sidebarOpen}
-          toggleSidebar={toggleSidebar}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          userEmail={userEmail}
-        />
-
-        {sidebarOpen && window.innerWidth < 768 && (
-          <div
-            onClick={toggleSidebar}
-            className="fixed inset-0 bg-black bg-opacity-30 z-20 md:hidden"
+      <div className="flex flex-1 overflow-hidden h-screen relative pt-16">
+        {/* Sidebar for Desktop */}
+        <div className="hidden md:block fixed top-16 left-0 h-[calc(100vh-4rem)] w-64 z-30 bg-white shadow-lg">
+          <Sidebar
+            sidebarOpen={sidebarOpen}
+            toggleSidebar={toggleSidebar}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            userEmail={userEmail}
           />
+        </div>
+
+        {/* Sidebar for Mobile */}
+        {sidebarOpen && (
+          <div className="fixed inset-0 z-40 flex md:hidden">
+            <div
+              className="fixed inset-0 bg-black bg-opacity-40"
+              onClick={toggleSidebar}
+            />
+            <div className="relative w-64 bg-white shadow-xl h-full z-50">
+              <Sidebar
+                sidebarOpen={sidebarOpen}
+                toggleSidebar={toggleSidebar}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                userEmail={userEmail}
+              />
+            </div>
+          </div>
         )}
 
-        <main className={`flex-1 p-6 overflow-auto`}>
+        {/* Main Content */}
+        <main className="flex-1 p-6 overflow-auto md:ml-64">
           {activeTab === 'register' ? (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -116,22 +205,16 @@ const CarRegistrationDashboard = () => {
               <h2 className="text-2xl font-semibold text-gray-800 mb-6">Register New Car</h2>
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {[
-                    { id: 'plateNumber', label: 'Number Plate' },
-                    { id: 'phoneNumber', label: 'Phone Number' },
-                    { id: 'carName', label: 'Car Name' },
-                    { id: 'make', label: 'Make' },
-                    { id: 'model', label: 'Model' }
-                  ].map(field => (
-                    <div key={field.id}>
-                      <label htmlFor={field.id} className="block text-sm font-medium text-black mb-1">
-                        {field.label}
+                  {['plateNumber', 'phoneNumber', 'carName', 'make', 'model'].map(field => (
+                    <div key={field}>
+                      <label htmlFor={field} className="block text-sm font-medium text-black mb-1 capitalize">
+                        {field.replace(/([A-Z])/g, ' $1')}
                       </label>
                       <input
                         type="text"
-                        id={field.id}
-                        name={field.id}
-                        value={formData[field.id]}
+                        id={field}
+                        name={field}
+                        value={formData[field]}
                         onChange={handleInputChange}
                         className="text-black w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                         required
@@ -181,7 +264,6 @@ const CarRegistrationDashboard = () => {
 
               {filteredRegistrations.length > 0 ? (
                 <>
-                  {/* Table for desktop */}
                   <div className="hidden md:block overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-200">
                       <thead className="bg-gray-50">
@@ -221,7 +303,6 @@ const CarRegistrationDashboard = () => {
                     </table>
                   </div>
 
-                  {/* Mobile Cards */}
                   <div className="md:hidden space-y-4">
                     {filteredRegistrations.map((car) => (
                       <motion.div

@@ -22,7 +22,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab, userEmai
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -300, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 250, damping: 22 }}
-          className="fixed md:relative z-30 inset-y-0 left-0 w-64 bg-gradient-to-br from-gray-100 to-white shadow-2xl rounded-tr-3xl rounded-br-3xl flex flex-col border-r border-gray-200"
+          className="fixed md:relative z-30 inset-y-0 left-0 w-64 h-screen bg-gradient-to-br from-gray-100 to-white shadow-2xl rounded-tr-3xl rounded-br-3xl flex flex-col border-r border-gray-200"
         >
           {/* Top bar for mobile */}
           <div className="p-4 flex justify-between items-center border-b border-gray-200 md:hidden">
@@ -38,7 +38,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab, userEmai
 
           {/* Profile */}
           <motion.div
-            className="p-5 border-b border-gray-200 flex items-center gap-3"
+            className="p-5 border-b border-gray-200 flex items-center gap-3 shrink-0"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -56,32 +56,30 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab, userEmai
           </motion.div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-4 py-6">
-            <ul className="space-y-2">
-              {navItems.map((item) => (
-                <motion.li
-                  key={item.id}
-                  whileHover={{ scale: 1.02, x: 4 }}
-                  transition={{ type: 'spring', stiffness: 250 }}
+          <nav className="px-4 py-6 space-y-2 flex-grow">
+            {navItems.map((item) => (
+              <motion.div
+                key={item.id}
+                whileHover={{ scale: 1.02, x: 4 }}
+                transition={{ type: 'spring', stiffness: 250 }}
+              >
+                <button
+                  onClick={() => handleNavClick(item.id)}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm ${
+                    activeTab === item.id
+                      ? 'bg-gray-200 text-gray-900 shadow-md'
+                      : 'text-gray-700 hover:bg-gray-100 hover:shadow-sm'
+                  }`}
                 >
-                  <button
-                    onClick={() => handleNavClick(item.id)}
-                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm ${
-                      activeTab === item.id
-                        ? 'bg-gray-200 text-gray-900 shadow-md'
-                        : 'text-gray-700 hover:bg-gray-100 hover:shadow-sm'
-                    }`}
-                  >
-                    {item.icon}
-                    {item.label}
-                  </button>
-                </motion.li>
-              ))}
-            </ul>
+                  {item.icon}
+                  {item.label}
+                </button>
+              </motion.div>
+            ))}
           </nav>
 
           {/* Logout */}
-          <div className="p-4 border-t border-gray-200">
+          <div className="p-4 border-t border-gray-200 shrink-0">
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
