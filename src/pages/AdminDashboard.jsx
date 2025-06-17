@@ -5,7 +5,7 @@ import AdminNavbar from '../components/admin/AdminNavbar';
 import AdminSidebar from '../components/admin/AdminSidebar';
 import RegisteredCarsList from '../components/registration/RegisteredCarsList';
 
-// Placeholder components for admin-specific tabs
+
 const CreateEmployee = () => <div className='bg-black'>loading ......</div>;
 const AllAccounts = () => <div className='bg-black'>loading ......</div>;
 const RolesPermissions = () => <div className='bg-black'>loading ......</div>;
