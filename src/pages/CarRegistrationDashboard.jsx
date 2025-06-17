@@ -17,19 +17,22 @@ const CarRegistrationDashboard = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const [formData, setFormData] = useState({
-    plateNumber: '',
+    ownerName: '',
     phoneNumber: '',
+    plateNumber: '',
     carName: '',
     make: '',
     model: ''
+   
   });
 
   useEffect(() => {
     const sampleData = [
       {
         id: 1,
-        plateNumber: 'A113',
+        ownerName: 'name surname',
         phoneNumber: '57736313',
+        plateNumber: 'A113',
         carName: 'Toyota Hiace',
         make: 'Toyota',
         model: 'Hiace',
@@ -37,90 +40,50 @@ const CarRegistrationDashboard = () => {
       },
       {
         id: 2,
-        plateNumber: 'G432',
-        phoneNumber: '63234923',
-        carName: 'Executive Car',
-        make: 'Mercedes',
-        model: 'E-Class',
-        timestamp: new Date('2025-05-15T14:15:00')
-      },
-      {
-        id: 3,
-        plateNumber: 'B987',
-        phoneNumber: '12345678',
+        ownerName: 'name surname',
+        phoneNumber: '57736313',
+        plateNumber: 'A114',
         carName: 'Honda Accord',
         make: 'Honda',
         model: 'Accord',
         timestamp: new Date('2025-05-16T10:00:00')
       },
       {
-        id: 4,
-        plateNumber: 'C654',
-        phoneNumber: '87654321',
+        id: 3,
+        ownerName: 'name surname',
+        phoneNumber: '57736313',
+        plateNumber: 'A115',
         carName: 'Ford Focus',
         make: 'Ford',
         model: 'Focus',
-        timestamp: new Date('2025-05-16T11:45:00')
+        timestamp: new Date('2025-05-17T11:15:00')
+      },
+      {
+        id: 4,
+        ownerName: 'name surname',
+        phoneNumber: '57736313',
+        plateNumber: 'A116',
+        carName: 'BMW X5',
+        make: 'BMW',
+        model: 'X5',
+        timestamp: new Date('2025-05-18T12:45:00')
       },
       {
         id: 5,
-        plateNumber: 'D321',
-        phoneNumber: '23456789',
-        carName: 'Nissan Altima',
-        make: 'Nissan',
-        model: 'Altima',
-        timestamp: new Date('2025-05-17T08:30:00')
-      },
-      {
-        id: 6,
-        plateNumber: 'E876',
-        phoneNumber: '34567890',
-        carName: 'Chevrolet Malibu',
-        make: 'Chevrolet',
-        model: 'Malibu',
-        timestamp: new Date('2025-05-17T13:20:00')
-      },
-      {
-        id: 7,
-        plateNumber: 'F543',
-        phoneNumber: '45678901',
-        carName: 'Volkswagen Jetta',
-        make: 'Volkswagen',
-        model: 'Jetta',
-        timestamp: new Date('2025-05-18T09:15:00')
-      },
-      {
-        id: 8,
-        plateNumber: 'H210',
-        phoneNumber: '56789012',
-        carName: 'Hyundai Sonata',
-        make: 'Hyundai',
-        model: 'Sonata',
-        timestamp: new Date('2025-05-18T15:00:00')
-      },
-      {
-        id: 9,
-        plateNumber: 'I789',
-        phoneNumber: '67890123',
-        carName: 'Kia Optima',
-        make: 'Kia',
-        model: 'Optima',
-        timestamp: new Date('2025-05-19T10:45:00')
-      },
-      {
-        id: 10,
-        plateNumber: 'J456',
-        phoneNumber: '78901234',
-        carName: 'Subaru Legacy',
-        make: 'Subaru',
-        model: 'Legacy',
-        timestamp: new Date('2025-05-19T12:30:00')
+        ownerName: 'name surname',
+        phoneNumber: '57736313',
+        plateNumber: 'A117',
+        carName: 'Mercedes-Benz C-Class',
+        make: 'Mercedes-Benz',
+        model: 'C-Class',
+        timestamp: new Date('2025-05-19T14:20:00')
       }
+
     ];
     setRegistrations(sampleData);
     setFilteredRegistrations(sampleData);
   }, []);
-  
+
   useEffect(() => {
     if (filterDate) {
       const filtered = registrations.filter(reg =>
@@ -146,11 +109,13 @@ const CarRegistrationDashboard = () => {
     };
     setRegistrations(prev => [...prev, newRegistration]);
     setFormData({
-      plateNumber: '',
+      ownerName: '',
       phoneNumber: '',
+       plateNumber: '',
       carName: '',
       make: '',
-      model: ''
+      model: '',
+     
     });
     enqueueSnackbar('Car registered successfully!', { variant: 'success' });
   };
@@ -205,7 +170,7 @@ const CarRegistrationDashboard = () => {
               <h2 className="text-2xl font-semibold text-gray-800 mb-6">Register New Car</h2>
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {['plateNumber', 'phoneNumber', 'carName', 'make', 'model'].map(field => (
+                  {['ownerName','phoneNumber','plateNumber','carName', 'make', 'model' ].map(field => (
                     <div key={field}>
                       <label htmlFor={field} className="block text-sm font-medium text-black mb-1 capitalize">
                         {field.replace(/([A-Z])/g, ' $1')}
@@ -268,7 +233,7 @@ const CarRegistrationDashboard = () => {
                     <table className="min-w-full divide-y divide-gray-200">
                       <thead className="bg-gray-50">
                         <tr>
-                          {['Plate', 'Car Name', 'Make/Model', 'Phone', 'Date/Time'].map((h, i) => (
+                          {['Plate', 'Owner', 'Car Name', 'Make/Model', 'Phone', 'Date/Time'].map((h, i) => (
                             <th
                               key={i}
                               className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -288,6 +253,7 @@ const CarRegistrationDashboard = () => {
                             className="hover:bg-blue-50"
                           >
                             <td className="px-6 py-4 font-medium text-gray-900">{car.plateNumber}</td>
+                            <td className="px-6 py-4 text-gray-700">{car.ownerName}</td>
                             <td className="px-6 py-4 text-gray-700">{car.carName}</td>
                             <td className="px-6 py-4 text-gray-700">{car.make} {car.model}</td>
                             <td className="px-6 py-4 text-gray-700">{car.phoneNumber}</td>
@@ -314,6 +280,7 @@ const CarRegistrationDashboard = () => {
                       >
                         <div className="text-lg font-semibold text-blue-600">{car.carName}</div>
                         <div className="text-gray-800 font-medium">Plate: {car.plateNumber}</div>
+                        <div className="text-gray-700">Owner: {car.ownerName}</div>
                         <div className="text-gray-700">Make/Model: {car.make} {car.model}</div>
                         <div className="text-gray-700">Phone: {car.phoneNumber}</div>
                         <div className="text-gray-500 text-sm flex items-center mt-1">
