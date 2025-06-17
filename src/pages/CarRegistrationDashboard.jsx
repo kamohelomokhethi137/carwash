@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSnackbar } from 'notistack';
-import Navbar from '../components/RegistrationNavbar';
-import Sidebar from '../components/RegistrationSidebar';
+import Navbar from '../components/registration/RegistrationNavbar';
+import Sidebar from '../components/registration/RegistrationSidebar';
 import RegisterCarForm from '../components/registration/RegisterCarForm';
 import RegisteredCarsList from '../components/registration/RegisteredCarsList';
 
