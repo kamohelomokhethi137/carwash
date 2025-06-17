@@ -28,10 +28,10 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans text-black px-4">
-      {/* Container: not full screen on laptops, centered, with shadow */}
+    
       <div className="bg-white rounded-lg shadow-lg max-w-4xl w-full md:flex md:h-[600px] overflow-hidden">
         
-        {/* Image Side: hidden on small devices */}
+   
         <div 
           className="hidden md:block md:w-1/2 bg-cover bg-center relative"
           style={{ backgroundImage: `url(${loginSvg})` }}
@@ -53,7 +53,7 @@ const Login = () => {
                 <FaLock className="text-blue-500 text-2xl" />
               </div>
               <h1 className="text-3xl font-bold mb-2">Welcome back!</h1>
-              {/* <p className="text-gray-700">Simplify your workflow and boost productivity.</p> */}
+             
             </div>
 
             <form className="space-y-4">

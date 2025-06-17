@@ -20,6 +20,7 @@ const AdminSidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab }) =
     { id: 'registrations', label: 'Registered Cars', icon: <FiList size={18} /> },
     { id: 'create-employee', label: 'Create Employee', icon: <FiUserPlus size={18} /> },
     { id: 'accounts', label: 'View All Accounts', icon: <FiUsers size={18} /> },
+      { id: 'payments', label: 'Payments', icon: <FiUsers size={18} /> },
     { id: 'roles', label: 'Roles & Permissions', icon: <FiSettings size={18} /> },
   ];
 

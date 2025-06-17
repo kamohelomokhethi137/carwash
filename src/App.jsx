@@ -9,7 +9,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import CarRegistrationDashboard from './pages/CarRegistrationDashboard';
 
 import PageNotFound from './pages/PageNotFound';
-import Navbar from './components/Navbar'; 
+
 
 
 function App() {
@@ -20,23 +20,15 @@ function App() {
           path="/"
           element={
             <>
-              
-              <Navbar />
               <Home />
             </>
           }
         />
         <Route path="/notifications" element={<Notifications />} />
-
-
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/car-registration" element={<CarRegistrationDashboard />} />
-
         <Route path="/admin" element={<AdminDashboard />} />
-        
-    
-
         <Route path="*" element={<PageNotFound />} />
 
       </Routes>
