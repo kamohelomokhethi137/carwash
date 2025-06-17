@@ -1,9 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiX, FiUser, FiHome, FiList, FiLogOut } from 'react-icons/fi';
+import { FiX,FiHome, FiList, FiLogOut } from 'react-icons/fi';
 
-const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab, userEmail }) => {
-  const userName = userEmail ? userEmail.split('@')[0] : 'User';
-
+const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab }) => {
   const handleNavClick = (tab) => {
     setActiveTab(tab);
     if (window.innerWidth < 768) toggleSidebar();
@@ -11,7 +9,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab, userEmai
 
   const navItems = [
     { id: 'register', label: 'Register Car', icon: <FiHome size={18} /> },
-    { id: 'registrations', label: 'Registered Cars', icon: <FiList size={18} /> }
+    { id: 'registrations', label: 'Registered Cars', icon: <FiList size={18} /> },
   ];
 
   return (
@@ -24,7 +22,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab, userEmai
           transition={{ type: 'spring', stiffness: 250, damping: 22 }}
           className="fixed md:relative z-30 inset-y-0 left-0 w-64 h-screen bg-gradient-to-br from-gray-100 to-white shadow-2xl rounded-tr-3xl rounded-br-3xl flex flex-col border-r border-gray-200"
         >
-          {/* Top bar for mobile */}
+     
           <div className="p-4 flex justify-between items-center border-b border-gray-200 md:hidden">
             <h2 className="text-lg font-semibold text-gray-800 tracking-wide">Menu</h2>
             <button
@@ -36,27 +34,8 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab, userEmai
             </button>
           </div>
 
-          {/* Profile */}
-          <motion.div
-            className="p-5 border-b border-gray-200 flex items-center gap-3 shrink-0"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.div
-              className="w-11 h-11 rounded-full bg-gray-300 text-white flex items-center justify-center shadow-lg"
-              whileHover={{ scale: 1.1 }}
-            >
-              <FiUser size={20} className="text-gray-700" />
-            </motion.div>
-            <div>
-              <p className="font-semibold text-gray-800">{userName}</p>
-              <p className="text-xs text-gray-500 truncate">{userEmail}</p>
-            </div>
-          </motion.div>
-
-          {/* Navigation */}
-          <nav className="px-4 py-6 space-y-2 flex-grow">
+        
+          <nav className="px-4 py-6 space-y-2 flex-grow mb-10">
             {navItems.map((item) => (
               <motion.div
                 key={item.id}
@@ -78,8 +57,8 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab, userEmai
             ))}
           </nav>
 
-          {/* Logout */}
-          <div className="p-4 border-t border-gray-200 shrink-0">
+       
+          <div className="p-4 border-t border-gray-200 shrink-0 lg:mb-15"> 
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
