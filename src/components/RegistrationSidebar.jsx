@@ -58,7 +58,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, activeTab, setActiveTab }) => {
           </nav>
 
        
-          <div className="p-4 border-t border-gray-200 shrink-0 lg:mb-15"> 
+          <div className="p-4 border-t border-gray-200 shrink-0 mb-10 lg:mb-15"> 
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
