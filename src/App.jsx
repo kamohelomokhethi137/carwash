@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Home from './pages/Landing';
 import Notifications from './pages/Notifications';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import sendSms from './pages/SendSms';
-
+import SendSms from './pages/SendSms';
 import AdminDashboard from './pages/AdminDashboard';
 import CarRegistrationDashboard from './pages/CarRegistrationDashboard';
 import Booking from './pages/BookingPage';
@@ -25,9 +25,8 @@ function App() {
         <Route path="/car-registration" element={<CarRegistrationDashboard />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/book" element={<Booking />} />
-        <Route path="/sendsms" element={<sendSms />} />
+        <Route path="/sendsms" element={<SendSms />} />
         <Route path="*" element={<PageNotFound />} />
-
       </Routes>
     </Router>
   );
