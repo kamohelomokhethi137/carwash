@@ -7,12 +7,13 @@ import RegisteredCarsList from '../components/registration/RegisteredCarsList';
 
 
 const CreateEmployee = () => <div className='bg-black'>loading ......</div>;
+const Overview = () => <div className='bg-black'>loading ......</div>;
 const AllAccounts = () => <div className='bg-black'>loading ......</div>;
 const RolesPermissions = () => <div className='bg-black'>loading ......</div>;
 
 const AdminDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('registrations');
+  const [activeTab, setActiveTab] = useState('overview');
   const [registrations, setRegistrations] = useState([]);
   const [filteredRegistrations, setFilteredRegistrations] = useState([]);
   const [filterDate, setFilterDate] = useState('');
