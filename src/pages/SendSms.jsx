@@ -18,7 +18,7 @@ function SendSms() {
       numberPlate: 'CA 123-456',
       driverName: 'Lineo Sehlabo',
       phoneNumber: '+26652345678', // IMPORTANT: Use full international format
-      amountDue: 150.00,
+      amountDue: 120.00,
     },
     {
       numberPlate: 'GP 789-012',
