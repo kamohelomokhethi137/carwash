@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { FaLeaf, FaCalendarAlt, FaInfoCircle } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import car from '../assets/car-wash.svg';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,6 +43,11 @@ const imageVariant = {
 
 const Landing = () => {
   const shouldReduceMotion = useReducedMotion();
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleBookNowClick = () => {
+    navigate('/book'); // Navigate to the '/book' route
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -83,6 +89,7 @@ const Landing = () => {
                 className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
                 whileHover={!shouldReduceMotion ? { scale: 1.05 } : {}}
                 whileTap={!shouldReduceMotion ? { scale: 0.97 } : {}}
+                onClick={handleBookNowClick} // Add onClick handler
               >
                 <FaCalendarAlt className="inline mr-2" /> Book Now
               </motion.button>
