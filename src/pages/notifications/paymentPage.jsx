@@ -13,7 +13,7 @@ function PaymentsPage() {
       driverName: 'Lerato Sebilo',
       phoneNumber: '53456789',
       amountDue: 75.50,
-    },
+    },   
     {
       numberPlate: 'NW 345-678',
       driverName: 'Limakatso Lirontsho',

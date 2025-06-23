@@ -27,7 +27,7 @@ function Notifications() {
       clearTimeout(mainLoadTimer);
       clearTimeout(iconLoadTimer);
     };
-  }, []);
+  }, []);  
 
   const renderMainContent = () => {
     switch (activeContent) {

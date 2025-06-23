@@ -1,7 +1,7 @@
 import {CalendarDays,Search} from 'lucide-react';
 import React, { useState} from 'react';
 
-function BookingsPage() 
+function BookingsPage()  
  {
   const [searchTerm, setSearchTerm] = useState('');
   const [bookings, setBookings] = useState([
