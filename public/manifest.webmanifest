@@ -1,0 +1,15 @@
+{
+  "name": "Car Wash",
+  "short_name": "CarWash",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#071952",
+  "background_color": "#071952",
+  "icons": [
+    {
+      "src": "/image.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
