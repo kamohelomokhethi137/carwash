@@ -4,15 +4,17 @@ import { useSnackbar } from 'notistack';
 import AdminNavbar from '../components/admin/AdminNavbar';
 import AdminSidebar from '../components/admin/AdminSidebar';
 import RegisteredCarsList from '../components/registration/RegisteredCarsList';
+import Overview from '../components/admin/Overview';
 
 
 const CreateEmployee = () => <div className='bg-black'>loading ......</div>;
 const AllAccounts = () => <div className='bg-black'>loading ......</div>;
+const Payments = () => <div className='bg-black'>loading ......</div>;
 const RolesPermissions = () => <div className='bg-black'>loading ......</div>;
 
 const AdminDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('registrations');
+  const [activeTab, setActiveTab] = useState('overview');
   const [registrations, setRegistrations] = useState([]);
   const [filteredRegistrations, setFilteredRegistrations] = useState([]);
   const [filterDate, setFilterDate] = useState('');
@@ -78,8 +80,12 @@ const AdminDashboard = () => {
             clearDateFilter={clearDateFilter}
           />
         );
+      case 'overview':
+        return <Overview />;
       case 'create-employee':
         return <CreateEmployee />;
+      case 'payments':
+        return <Payments />;
       case 'accounts':
         return <AllAccounts />;
       case 'roles':

@@ -18,7 +18,7 @@ function SendSms() {
       numberPlate: 'CA 123-456',
       driverName: 'Lineo Sehlabo',
       phoneNumber: '+26652345678', // IMPORTANT: Use full international format
-      amountDue: 150.00,
+      amountDue: 120.00,
     },
     {
       numberPlate: 'GP 789-012',
@@ -97,7 +97,7 @@ function SendSms() {
 
   return (
     <div className="bg-white shadow rounded p-4 sm:p-6 w-full max-w-2xl mx-auto">
-      <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-6">Send WhatsApp Message to Driver</h3>
+      <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-6">Send Message to Driver</h3>
 
       {/* Search Section */}
       <form onSubmit={handleSearch} className="mb-6 p-4 border rounded bg-gray-50">
